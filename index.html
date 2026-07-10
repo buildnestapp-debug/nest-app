@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nest — Make shared life less stressful</title>
 <meta name="description" content="Nest keeps every shared bill in one place and makes sure one person never carries all the risk. See what you owe, who paid, and what your house keeps.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nesthouse.org">
+<meta property="og:title" content="Nest — Make shared life less stressful">
+<meta property="og:description" content="One name on the bill. Everyone else pays late, pays weird, or forgets. Nest makes shared bills clear and fair.">
+<meta property="og:image" content="https://nesthouse.org/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nest — Make shared life less stressful">
+<meta name="twitter:description" content="One name on the bill. Everyone else pays late, pays weird, or forgets. Nest makes shared bills clear and fair.">
+<meta name="twitter:image" content="https://nesthouse.org/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -702,7 +717,7 @@
   }});},{threshold:0.5});
   gio.observe(document.querySelector('.health'));
 
-  var ENDPOINT="https://formspree.io/f/meebbekd";
+  var ENDPOINT="https://formspree.io/f/YOUR_FORM_ID";
   function wire(f,m){f.addEventListener('submit',function(e){e.preventDefault();m.textContent="Sending...";
     fetch(ENDPOINT,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
     .then(function(r){if(r.ok){f.reset();m.textContent="You're on the list. We'll be in touch.";}else{m.textContent="Something went wrong. Try again in a sec.";}})
