@@ -1,5 +1,18 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  var navToggle=document.getElementById('navToggle'),primaryNav=document.getElementById('primaryNav');
+  function setNavOpen(open){
+    primaryNav.classList.toggle('open',open);
+    navToggle.classList.toggle('open',open);
+    navToggle.setAttribute('aria-expanded',String(open));
+    navToggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');
+  }
+  navToggle.addEventListener('click',function(){setNavOpen(navToggle.getAttribute('aria-expanded')!=='true');});
+  primaryNav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){setNavOpen(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setNavOpen(false);});
+  document.addEventListener('click',function(e){if(!e.target.closest('.nav-in'))setNavOpen(false);});
+  window.addEventListener('resize',function(){if(window.innerWidth>860)setNavOpen(false);});
+
   var HEADLINES = {
     a:"See where your flat's money actually goes.",
     b:"Know when money gets tight, before it does.",
