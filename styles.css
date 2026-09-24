@@ -766,11 +766,28 @@ nav.scrolled {
 }
 .lock-status {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 17px 24px 0;
   font-size: 12px;
   font-weight: 700;
 }
+.lock-network {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+.lock-network i {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+.lock-network i:nth-child(1) { height: 4px; }
+.lock-network i:nth-child(2) { height: 6px; }
+.lock-network i:nth-child(3) { height: 9px; }
+.lock-network i:nth-child(4) { height: 12px; }
 .lock-time {
   margin-top: 62px;
   text-align: center;
@@ -803,7 +820,7 @@ nav.scrolled {
   transform: translateY(-18px) scale(0.96);
 }
 .lock-phone.in .nest-notification {
-  animation: notification-loop 5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s infinite;
+  animation: notification-loop 4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s infinite;
 }
 @keyframes notification-loop {
   0% {
@@ -919,6 +936,7 @@ nav.scrolled {
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   text-align: center;
+  padding: 0px;
 }
 .strip .n {
   font-size: 32px;
@@ -1710,17 +1728,21 @@ footer {
     gap: 38px;
   }
   .awkward-copy {
+    grid-column: 1;
+    grid-row: 1;
     padding: 0 0 48px;
   }
   .awkward-copy h2 {
     font-size: clamp(42px, 6vw, 52px);
   }
   .lock-phone {
-    grid-column: 2;
-    grid-row: 1 / span 2;
+    grid-column: 1 / -1;
+    grid-row: 2;
     max-width: 330px;
   }
   .awkward-list {
+    grid-column: 2;
+    grid-row: 1;
     gap: 18px;
     padding: 10px 0 48px;
   }
@@ -1887,6 +1909,8 @@ footer {
     padding: 0 18px;
   }
   .awkward-copy {
+    grid-column: 1;
+    grid-row: auto;
     padding: 0;
     text-align: left;
   }
@@ -1909,6 +1933,8 @@ footer {
     order: 3;
   }
   .awkward-list {
+    grid-column: 1;
+    grid-row: auto;
     gap: 16px;
     padding: 2px 0 0;
     order: 2;
