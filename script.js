@@ -1,5 +1,10 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  var siteNav=document.querySelector('nav');
+  function syncNavSurface(){siteNav.classList.toggle('scrolled',window.scrollY>24);}
+  syncNavSurface();
+  window.addEventListener('scroll',syncNavSurface,{passive:true});
+
   var navToggle=document.getElementById('navToggle'),primaryNav=document.getElementById('primaryNav');
   function setNavOpen(open){
     primaryNav.classList.toggle('open',open);
@@ -14,9 +19,9 @@
   window.addEventListener('resize',function(){if(window.innerWidth>860)setNavOpen(false);});
 
   var HEADLINES = {
-    a:"See where your flat's money actually goes.",
-    b:"Know when money gets tight, before it does.",
-    c:"Flatting shouldn't mean one person carries all the risk."
+    a:"Shared bills shouldn’t sit on one person’s shoulders.",
+    b:"Shared bills shouldn’t sit on one person’s shoulders.",
+    c:"Shared bills shouldn’t sit on one person’s shoulders."
   };
   var v=(new URLSearchParams(location.search).get('v')||'c').toLowerCase();
   if(!HEADLINES[v])v='c';
@@ -43,11 +48,10 @@
     cio.unobserve(el);}});},{threshold:0.15});
   document.querySelectorAll('.count').forEach(function(el){cio.observe(el);});
 
-  var scrs=document.querySelectorAll('#deck .scr'),dns=document.querySelectorAll('#dotsNav .dn'),tabs=document.querySelectorAll('#tabbar .tab'),cur=0,timer=null;
-  function go(n){cur=n;scrs.forEach(function(s,i){s.classList.toggle('on',i===n);});dns.forEach(function(d,i){d.classList.toggle('on',i===n);});tabs.forEach(function(t,i){t.classList.toggle('act',i===n);});}
+  var scrs=document.querySelectorAll('#deck .scr'),tabs=document.querySelectorAll('#tabbar .tab'),cur=0,timer=null;
+  function go(n){cur=n;scrs.forEach(function(s,i){s.classList.toggle('on',i===n);});tabs.forEach(function(t,i){t.classList.toggle('act',i===n);});}
   function loop(){timer=setInterval(function(){go((cur+1)%scrs.length);},2800);}
   function stop(){if(timer){clearInterval(timer);timer=null;}}
-  dns.forEach(function(d,i){d.addEventListener('click',function(){stop();go(i);loop();});});
   if(!reduce){var st=false;var pio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!st){st=true;loop();}});},{threshold:0.3});pio.observe(document.getElementById('phone'));}
 
   document.querySelectorAll('#fcbars2 .bar').forEach(function(b){b.style.height='0%';});
