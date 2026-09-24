@@ -69,24 +69,6 @@
   });},{threshold:0.45});
   sceneIds.forEach(function(id){var el=document.getElementById(id);if(el)sio.observe(el);});
 
-  var people=4,total=1800;
-  var seg=document.getElementById('seg'),rng=document.getElementById('rng'),rngv=document.getElementById('rngv');
-  var rt=document.getElementById('riskToday'),rn=document.getElementById('riskNest'),ft=document.getElementById('fillToday'),fn=document.getElementById('fillNest');
-  function fmt(n){return '$'+Math.round(n).toLocaleString();}
-  function animNum(el,to){var from=parseFloat((el.textContent||'0').replace(/[^0-9.]/g,''))||0,t0=null;if(reduce){el.textContent=fmt(to);return;}
-    requestAnimationFrame(function a(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/450,1);el.textContent=fmt(from+(to-from)*p);if(p<1)requestAnimationFrame(a);});}
-  function update(){
-    var share=total/people;
-    rngv.textContent=fmt(total)+' / month';
-    animNum(rt,total); animNum(rn,share);
-    ft.style.width='100%';
-    fn.style.width=Math.max(8,(share/total*100))+'%';
-  }
-  seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;seg.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');people=+b.dataset.n;update();});
-  rng.addEventListener('input',function(){total=+rng.value;update();});
-  var rvis=false;var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!rvis){rvis=true;update();}});},{threshold:0.35});
-  rio.observe(document.getElementById('risk'));
-
   var gArc=document.getElementById('gaugeArc'),gNum=document.getElementById('gaugeNum'),gDone=false,SCORE=92,LEN=490;
   var gio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!gDone){gDone=true;
     if(reduce){gArc.style.strokeDashoffset=LEN-(LEN*SCORE/100);gNum.textContent=SCORE;return;}
