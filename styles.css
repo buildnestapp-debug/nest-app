@@ -113,7 +113,7 @@ nav.scrolled {
 }
 .nav-links a {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--green);
   text-decoration: none;
   transition: opacity 0.2s;
@@ -346,6 +346,8 @@ nav.scrolled {
   box-shadow:
     0 42px 80px -28px rgba(22, 36, 31, 0.58),
     0 14px 30px -12px rgba(0, 0, 0, 0.3);
+  transform: rotate(4deg);
+  transform-origin: bottom center;
 }
 .screen {
   background: var(--cream);
@@ -1636,7 +1638,7 @@ footer {
   }
   .phone,
   .phone.rise.in {
-    transform: translateY(10px) scale(0.92);
+    transform: translateY(10px) scale(0.92) rotate(3deg);
     transform-origin: bottom center;
   }
   .strip-grid {
@@ -1795,7 +1797,7 @@ footer {
   }
   .phone,
   .phone.rise.in {
-    transform: translateY(12px) scale(0.82);
+    transform: translateY(12px) scale(0.82) rotate(2deg);
     transform-origin: bottom center;
   }
 }
