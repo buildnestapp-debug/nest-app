@@ -18,6 +18,11 @@
   document.addEventListener('click',function(e){if(!e.target.closest('.nav-in'))setNavOpen(false);});
   window.addEventListener('resize',function(){if(window.innerWidth>860)setNavOpen(false);});
 
+  var lockDate=document.getElementById('lockDate');
+  if(lockDate){
+    lockDate.textContent=new Intl.DateTimeFormat('en-NZ',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
+  }
+
   var HEADLINES = {
     a:"Shared bills shouldn’t sit on one person’s shoulders.",
     b:"Shared bills shouldn’t sit on one person’s shoulders.",

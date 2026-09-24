@@ -202,7 +202,7 @@ nav.scrolled {
     ),
     url("assets/images/hero-interior.jpg") center/cover no-repeat;
   overflow: hidden;
-  /* border-bottom: 1px solid rgba(46, 74, 67, 0.08); */
+  border-bottom: 1px solid rgba(46, 74, 67, 0.08);
 }
 .hero-grid {
   display: grid;
@@ -702,6 +702,210 @@ nav.scrolled {
 }
 .fab:hover {
   transform: scale(1.06);
+}
+
+/* TAKE THE AWKWARD OUT OF MONEY */
+.awkward {
+  overflow: hidden;
+  background: #fbfaf7;
+  border-bottom: 1px solid rgba(46, 74, 67, 0.08);
+  padding: 72px 0 0;
+}
+.awkward-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.9fr) minmax(230px, 0.65fr);
+  align-items: start;
+  gap: 54px;
+}
+.awkward-copy {
+  align-self: start;
+  padding-top: 12px;
+  padding-bottom: 40px;
+}
+.awkward-copy h2 {
+  max-width: 500px;
+  color: var(--green);
+  font-size: clamp(42px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+.awkward-copy p {
+  max-width: 530px;
+  margin: 30px 0 32px;
+  color: #50645f;
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+.awkward-copy .btn {
+  min-width: 220px;
+  border-radius: 10px;
+  padding: 16px 28px;
+  text-align: center;
+}
+.lock-phone {
+  width: 100%;
+  max-width: 350px;
+  height: 400px;
+  align-self: start;
+  justify-self: center;
+  padding: 10px 10px 0;
+  border-radius: 46px 46px 0 0;
+  background: #101512;
+  box-shadow: 0 34px 70px -30px rgba(20, 37, 31, 0.55);
+}
+.lock-screen {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 37px 37px 0 0;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(12, 24, 20, 0.12), rgba(12, 24, 20, 0.2)),
+    url("assets/images/auckland-landscape.jpg") center/cover no-repeat;
+}
+.lock-status {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 24px 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+.lock-time {
+  margin-top: 62px;
+  text-align: center;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
+}
+.lock-date {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 18px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+.nest-notification {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 13px;
+  margin: 44px 18px 0;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 22px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 45px -24px rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  transform: translateY(-18px) scale(0.96);
+}
+.lock-phone.in .nest-notification {
+  animation: notification-loop 5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s infinite;
+}
+@keyframes notification-loop {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.96);
+  }
+  12% {
+    opacity: 1;
+    transform: translateY(3px) scale(1.01);
+  }
+  18%,
+  78% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+}
+.notification-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  overflow: hidden;
+  border-radius: 13px;
+  background: #fff;
+}
+.notification-logo img {
+  width: 46px;
+  height: auto;
+  object-fit: contain;
+}
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 1.38;
+}
+.notification-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.notification-head span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.awkward-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-self: start;
+  list-style: none;
+  padding: 18px 0 72px;
+}
+.awkward-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #526661;
+  font-size: 17px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(22px);
+}
+.awkward-list.in li {
+  animation: checklist-rise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.awkward-list.in li:nth-child(1) {
+  animation-delay: 0.12s;
+}
+.awkward-list.in li:nth-child(2) {
+  animation-delay: 0.26s;
+}
+.awkward-list.in li:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.awkward-list.in li:nth-child(4) {
+  animation-delay: 0.54s;
+}
+@keyframes checklist-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.awkward-list li span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+  color: #fff;
+  background: #18a568;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 /* STAT STRIP */
@@ -1498,6 +1702,28 @@ footer {
     transform: translateY(10px) scale(0.92) rotate(3deg);
     transform-origin: bottom center;
   }
+  .awkward {
+    padding-top: 60px;
+  }
+  .awkward-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 38px;
+  }
+  .awkward-copy {
+    padding: 0 0 48px;
+  }
+  .awkward-copy h2 {
+    font-size: clamp(42px, 6vw, 52px);
+  }
+  .lock-phone {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: 330px;
+  }
+  .awkward-list {
+    gap: 18px;
+    padding: 10px 0 48px;
+  }
   .strip-grid {
     grid-template-columns: 1fr 1fr;
     gap: 26px;
@@ -1652,6 +1878,44 @@ footer {
     transform: translateY(12px) scale(0.82) rotate(2deg);
     transform-origin: bottom center;
   }
+  .awkward {
+    padding-top: 46px;
+  }
+  .awkward-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 0 18px;
+  }
+  .awkward-copy {
+    padding: 0;
+    text-align: left;
+  }
+  .awkward-copy h2 {
+    font-size: 42px;
+  }
+  .awkward-copy p {
+    margin: 22px 0 24px;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .awkward-copy .btn {
+    width: 100%;
+  }
+  .lock-phone {
+    grid-column: 1;
+    grid-row: auto;
+    height: 450px;
+    max-width: 320px;
+    order: 3;
+  }
+  .awkward-list {
+    gap: 16px;
+    padding: 2px 0 0;
+    order: 2;
+  }
+  .awkward-list li {
+    font-size: 15px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .rise {
@@ -1661,5 +1925,15 @@ footer {
   }
   * {
     scroll-behavior: auto;
+  }
+  .nest-notification {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+  .awkward-list li {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
   }
 }
