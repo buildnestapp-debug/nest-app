@@ -1682,25 +1682,43 @@ nav.scrolled {
 
 /* HOUSE HEALTH GAUGE */
 .health {
-  background: var(--white);
-  padding: 84px 0;
+  background: #f8faf9;
+  padding: 92px 0;
+  border-bottom: 1px solid rgba(46, 74, 67, 0.08);
 }
 .health-card {
-  max-width: 900px;
+  position: relative;
+  overflow: hidden;
+  max-width: 960px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 48px;
+  gap: 58px;
   align-items: center;
-  background: var(--cream);
-  border-radius: 26px;
-  padding: 44px;
+  background: linear-gradient(135deg, #f5f9f8 0%, var(--cream) 100%);
+  border: 1px solid rgba(46, 74, 67, 0.1);
+  border-radius: 30px;
+  padding: 54px 58px;
+  box-shadow: 0 34px 70px -54px rgba(36, 59, 53, 0.65);
+}
+.health-card::after {
+  content: "";
+  position: absolute;
+  top: -130px;
+  right: -120px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(207, 234, 244, 0.55), transparent 68%);
 }
 .gauge {
   position: relative;
   width: 180px;
   height: 180px;
   flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 24px 45px -32px rgba(46, 74, 67, 0.65);
 }
 .gauge svg {
   transform: rotate(-90deg);
@@ -1713,13 +1731,27 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
 }
+.gauge .gv::before {
+  content: "";
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  border: 1px solid rgba(126, 190, 215, 0.55);
+  border-radius: 50%;
+  background: rgba(224, 244, 251, 0.9);
+  box-shadow: inset 0 0 28px rgba(126, 190, 215, 0.18);
+}
 .gauge .gv .num {
+  position: relative;
+  z-index: 1;
   font-size: 44px;
   font-weight: 800;
   color: var(--green);
   line-height: 1;
 }
 .gauge .gv .lab {
+  position: relative;
+  z-index: 1;
   font-size: 11px;
   font-weight: 700;
   color: var(--sage);
@@ -1728,13 +1760,14 @@ nav.scrolled {
   margin-top: 2px;
 }
 .health h2 {
-  font-size: clamp(23px, 2.8vw, 32px);
+  font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 800;
   color: var(--green);
   margin: 10px 0 12px;
 }
 .health p {
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--ink);
   max-width: 440px;
   margin-bottom: 16px;
