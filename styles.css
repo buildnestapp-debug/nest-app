@@ -927,30 +927,75 @@ nav.scrolled {
 
 /* STAT STRIP */
 .strip {
-  background: var(--white);
+  background: #f4f1ec;
   border-bottom: 1px solid var(--line);
-  padding: 34px 0;
+  padding: 76px 0 82px;
+}
+.strip-head {
+  max-width: 640px;
+  margin-bottom: 34px;
+}
+.strip-head .eyebrow {
+  color: var(--sage);
+}
+.strip-head h2 {
+  margin-top: 12px;
+  color: var(--green);
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 800;
 }
 .strip-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
-  padding: 0px;
+  gap: 14px;
+  text-align: left;
+}
+.strip-grid > div {
+  position: relative;
+  min-height: 210px;
+  overflow: hidden;
+  padding: 28px 24px 24px;
+  border: 1px solid rgba(46, 74, 67, 0.1);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 22px 45px -38px rgba(36, 59, 53, 0.5);
+}
+.strip-grid > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  width: 44px;
+  height: 4px;
+  border-radius: 0 0 8px 8px;
+  background: var(--sage);
 }
 .strip .n {
-  font-size: 32px;
+  font-size: 44px;
   font-weight: 800;
   color: var(--green);
   line-height: 1;
+  letter-spacing: -0.045em;
 }
 .strip .c {
-  font-size: 12.5px;
+  display: flex;
+  min-height: 104px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13.5px;
+  line-height: 1.55;
   color: var(--muted);
-  margin-top: 8px;
+  margin-top: 18px;
 }
 .strip .c b {
-  color: var(--sage);
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: var(--green);
+  background: var(--sage-tint);
+  font-size: 10.5px;
   font-weight: 700;
 }
 
@@ -1748,7 +1793,10 @@ footer {
   }
   .strip-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 26px;
+    gap: 16px;
+  }
+  .strip-grid > div {
+    min-height: 190px;
   }
   .frow,
   .frow.alt {
@@ -1941,6 +1989,26 @@ footer {
   }
   .awkward-list li {
     font-size: 15px;
+  }
+  .strip {
+    padding: 58px 0 62px;
+  }
+  .strip-head {
+    margin-bottom: 26px;
+  }
+  .strip-head h2 {
+    font-size: 34px;
+  }
+  .strip-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .strip-grid > div {
+    min-height: 0;
+    padding: 24px 22px;
+  }
+  .strip .c {
+    min-height: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {
