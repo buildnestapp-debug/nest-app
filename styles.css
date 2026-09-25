@@ -933,7 +933,7 @@ nav.scrolled {
   border-bottom: 1px solid rgba(46, 74, 67, 0.08);
   background:
     linear-gradient(90deg, rgba(250, 248, 245, 0.96), rgba(250, 248, 245, 0.9), rgba(250, 248, 245, 0.96)),
-    url("assets/images/auckland-harbour.jpg") center 56%/cover no-repeat;
+    url("assets/images/auckland-landscape.jpg") center 56%/cover no-repeat;
 }
 .built-real h2 {
   margin-bottom: 40px;
@@ -1928,6 +1928,21 @@ nav.scrolled {
   white-space: nowrap;
 }
 
+/* AUCKLAND SKYLINE */
+.auckland-footer {
+  position: relative;
+  overflow: hidden;
+  height: 430px;
+  background: var(--cream);
+}
+.auckland-photo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(246, 242, 239, 0.62) 0%, rgba(246, 242, 239, 0.08) 30%, rgba(20, 35, 30, 0.08) 100%),
+    url("assets/images/auckland-harbour.jpg") center 52%/cover no-repeat;
+}
+
 /* FOOTER */
 footer {
   background: var(--green);
@@ -2110,6 +2125,9 @@ footer {
   .final {
     padding-top: 68px;
     padding-bottom: 58px;
+  }
+  .auckland-footer {
+    height: 340px;
   }
   .nav-in {
     grid-template-columns: 1fr auto auto;
@@ -2480,6 +2498,12 @@ footer {
     height: 52px;
     margin-top: 10px;
     border-radius: 8px;
+  }
+  .auckland-footer {
+    height: 260px;
+  }
+  .auckland-photo {
+    background-position: center 50%;
   }
   .foot {
     flex-direction: column;
