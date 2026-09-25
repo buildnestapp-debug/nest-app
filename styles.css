@@ -1811,25 +1811,74 @@ nav.scrolled {
 
 /* TRUST QUOTE */
 .quote {
-  background: var(--sage-tint);
-  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #e9eee4, #f3f0ea);
+  padding: 88px 0;
   text-align: center;
   border-bottom: 1px solid rgba(46, 74, 67, 0.08);
 }
-.quote p {
-  font-size: clamp(20px, 2.7vw, 28px);
-  font-weight: 700;
-  color: var(--green);
-  max-width: 800px;
+.quote::before,
+.quote::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(46, 74, 67, 0.08);
+  border-radius: 50%;
+}
+.quote::before {
+  top: -190px;
+  left: -80px;
+}
+.quote::after {
+  right: -100px;
+  bottom: -210px;
+}
+.quote-card {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
   margin: 0 auto;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  padding: 54px 64px 48px;
+  border: 1px solid rgba(46, 74, 67, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 34px 70px -56px rgba(36, 59, 53, 0.7);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.quote-mark {
+  display: block;
+  height: 46px;
+  color: var(--sage);
+  font-family: Georgia, serif;
+  font-size: 82px;
+  line-height: 0.9;
+}
+.quote-text {
+  max-width: 790px;
+  margin: 8px auto 0;
+  color: var(--green);
+  font-size: clamp(22px, 2.7vw, 30px);
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: -0.018em;
+}
+.quote-rule {
+  display: block;
+  width: 46px;
+  height: 2px;
+  margin: 28px auto 18px;
+  border-radius: 99px;
+  background: var(--sage);
 }
 .quote .m {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 18px;
-  font-weight: 500;
+  margin: 0;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 /* FINAL */
@@ -2388,9 +2437,20 @@ footer {
   .quote {
     padding: 58px 0;
   }
-  .quote p {
+  .quote-card {
+    padding: 42px 20px 38px;
+    border-radius: 22px;
+  }
+  .quote-mark {
+    height: 38px;
+    font-size: 68px;
+  }
+  .quote-text {
     font-size: 21px;
     line-height: 1.5;
+  }
+  .quote-rule {
+    margin: 22px auto 16px;
   }
   .final {
     padding: 58px 0 48px;
