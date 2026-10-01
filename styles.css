@@ -99,7 +99,7 @@ nav.scrolled {
 .nav-in {
   position: relative;
   display: grid;
-  grid-template-columns: 190px 1fr 190px;
+  grid-template-columns: 210px 1fr 190px;
   align-items: center;
   min-height: 86px;
   padding: 12px 24px;
