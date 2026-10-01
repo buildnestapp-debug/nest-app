@@ -50,6 +50,11 @@ h3 {
 a {
   color: inherit;
 }
+.built-real,
+.features,
+.quote {
+  scroll-margin-top: 86px;
+}
 .rise {
   opacity: 0;
   transform: translateY(22px);
