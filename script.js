@@ -134,9 +134,40 @@
     document.addEventListener('visibilitychange',function(){if(document.hidden)stopQuotes();else startQuotes();});
   }
 
-  function wire(f,m){f.addEventListener('submit',function(e){e.preventDefault();m.textContent="Sending...";
+  var signupToast=document.getElementById('signupToast'),signupToastTitle=document.getElementById('signupToastTitle'),signupToastText=document.getElementById('signupToastText'),signupToastClose=document.getElementById('signupToastClose'),toastTimer;
+  function hideToast(){signupToast.classList.remove('is-visible');}
+  function showToast(type,title,text){
+    clearTimeout(toastTimer);
+    signupToast.classList.toggle('is-error',type==='error');
+    signupToastTitle.textContent=title;
+    signupToastText.textContent=text;
+    signupToast.classList.add('is-visible');
+    toastTimer=setTimeout(hideToast,5200);
+  }
+  signupToastClose.addEventListener('click',hideToast);
+
+  function wire(f,m){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var button=f.querySelector('button[type="submit"]'),buttonLabel=button.textContent;
+    m.textContent="Sending...";
+    button.disabled=true;
+    button.textContent="Joining...";
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-    .then(function(r){if(r.ok){f.reset();m.textContent="You're on the list. We'll be in touch.";}else{m.textContent="Something went wrong. Try again in a sec.";}})
-    .catch(function(){m.textContent="Something went wrong. Try again in a sec.";});});}
+    .then(function(r){
+      if(r.ok){
+        f.reset();
+        m.textContent="You're in! Welcome to Nest — we'll keep you posted.";
+        showToast('success',"You’re in!","Welcome to Nest — we’ll keep you posted.");
+      }else{
+        m.textContent="Something went wrong. Please try again.";
+        showToast('error',"Couldn’t join just yet","Please try again in a moment.");
+      }
+    })
+    .catch(function(){
+      m.textContent="Something went wrong. Please try again.";
+      showToast('error',"Couldn’t join just yet","Please check your connection and try again.");
+    })
+    .finally(function(){button.disabled=false;button.textContent=buttonLabel;});
+  });}
   wire(document.getElementById('form1'),document.getElementById('msg1'));
   wire(document.getElementById('form2'),document.getElementById('msg2'));

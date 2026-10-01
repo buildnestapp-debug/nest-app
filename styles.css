@@ -332,18 +332,100 @@ nav.scrolled {
   white-space: nowrap;
 }
 .msg {
-  font-size: 13px;
-  margin-top: 10px;
-  min-height: 18px;
-  color: var(--green);
-  font-weight: 600;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.signup-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 32px;
+  align-items: center;
+  gap: 12px;
+  width: min(390px, calc(100vw - 32px));
+  padding: 14px 12px 14px 14px;
+  color: var(--white);
+  background: rgba(36, 59, 53, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(24, 42, 37, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(18px) scale(0.98);
+  transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s;
+}
+.signup-toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+.signup-toast.is-error {
+  background: rgba(120, 63, 51, 0.98);
+}
+.signup-toast-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: var(--green-d);
+  background: #dcebd8;
+  border-radius: 50%;
+}
+.signup-toast.is-error .signup-toast-icon {
+  color: #7a3f33;
+  background: #f8ddd6;
+}
+.signup-toast-icon svg {
+  width: 21px;
+  height: 21px;
+}
+.signup-toast-copy {
+  display: grid;
+  gap: 2px;
+  line-height: 1.35;
+}
+.signup-toast-copy strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+.signup-toast-copy > span {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12.5px;
+}
+.signup-toast-close {
+  width: 32px;
+  height: 32px;
+  color: rgba(255, 255, 255, 0.72);
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.signup-toast-close:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
 }
 .hero-benefits {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   max-width: 600px;
-  /* margin-top: 28px; */
+  margin-top: 28px;
   /* padding-top: 24px; */
   /* border-top: 1px solid rgba(46, 74, 67, 0.08); */
 }
@@ -2510,6 +2592,10 @@ footer {
   }
 }
 @media (max-width: 480px) {
+  .signup-toast {
+    right: 16px;
+    bottom: 16px;
+  }
   .nav-in {
     grid-template-columns: 1fr auto auto;
     gap: 7px;
@@ -2859,6 +2945,9 @@ footer {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .signup-toast {
+    transition: none;
+  }
   .rise {
     opacity: 1 !important;
     transform: none !important;
