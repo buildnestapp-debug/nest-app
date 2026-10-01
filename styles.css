@@ -1749,7 +1749,9 @@ nav.scrolled {
   grid-template-columns: auto 1fr;
   gap: 58px;
   align-items: center;
-  background: linear-gradient(135deg, #f5f9f8 0%, var(--cream) 100%);
+  background:
+    radial-gradient(circle at 8% 18%, rgba(126, 190, 215, 0.2), transparent 33%),
+    linear-gradient(135deg, #f5f9f8 0%, var(--cream) 100%);
   border: 1px solid rgba(46, 74, 67, 0.1);
   border-radius: 30px;
   padding: 54px 58px;
@@ -1765,6 +1767,15 @@ nav.scrolled {
   border-radius: 50%;
   pointer-events: none;
   background: radial-gradient(circle, rgba(207, 234, 244, 0.55), transparent 68%);
+}
+.health-visual {
+  position: relative;
+  z-index: 1;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 .gauge {
   position: relative;
@@ -1813,11 +1824,68 @@ nav.scrolled {
   text-transform: uppercase;
   margin-top: 2px;
 }
-.health h2 {
-  font-size: clamp(28px, 3.2vw, 40px);
-  font-weight: 800;
+.health .health-score-note {
+  max-width: 205px;
+  margin: 0;
+  color: #62706b;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+.health-score-note strong {
+  display: block;
   color: var(--green);
-  margin: 10px 0 12px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.health-copy {
+  position: relative;
+  z-index: 1;
+}
+.health-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.health-kicker .eyebrow {
+  margin: 0;
+}
+.health-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 14px;
+  color: #245b50;
+  background: linear-gradient(145deg, #d9f1f8, #dfead7);
+  box-shadow: 0 12px 28px -18px rgba(36, 91, 80, 0.8);
+}
+.health-icon svg {
+  width: 27px;
+  height: 27px;
+  fill: rgba(255, 255, 255, 0.5);
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.health h2 {
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 850;
+  color: var(--green);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  margin: 18px 0 16px;
+}
+.health h2 span {
+  color: #3f8878;
+  background: linear-gradient(90deg, #2e7568, #68a486);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .health p {
   font-size: 16px;
@@ -2157,6 +2225,12 @@ footer {
     gap: 26px;
     text-align: center;
     padding: 38px 30px;
+  }
+  .health-visual {
+    margin: 0 auto;
+  }
+  .health-kicker {
+    justify-content: center;
   }
   .gauge {
     margin: 0 auto;

@@ -351,16 +351,27 @@
 <section class="health">
   <div class="wrap">
     <div class="health-card rise">
-      <div class="gauge">
-        <svg width="180" height="180" viewBox="0 0 180 180">
-          <circle cx="90" cy="90" r="78" fill="none" stroke="#CFEAF4" stroke-width="14"/>
-          <circle id="gaugeArc" cx="90" cy="90" r="78" fill="none" stroke="#2E4A43" stroke-width="14" stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="490"/>
-        </svg>
-        <div class="gv"><div class="num" id="gaugeNum">0</div><div class="lab">House health</div></div>
+      <div class="health-visual">
+        <div class="gauge">
+          <svg width="180" height="180" viewBox="0 0 180 180">
+            <circle cx="90" cy="90" r="78" fill="none" stroke="#CFEAF4" stroke-width="14"/>
+            <circle id="gaugeArc" cx="90" cy="90" r="78" fill="none" stroke="#2E4A43" stroke-width="14" stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="490"/>
+          </svg>
+          <div class="gv"><div class="num" id="gaugeNum">0</div><div class="lab">House health</div></div>
+        </div>
+        <p class="health-score-note"><strong>A high score means:</strong> bills covered, shares fair, and nobody left chasing.</p>
       </div>
-      <div>
-        <p class="eyebrow">Peace of mind, scored</p>
-        <h2>Know your house is running smooth at a glance.</h2>
+      <div class="health-copy">
+        <div class="health-kicker">
+          <span class="health-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" focusable="false">
+              <path d="M24 5.5c6.2 5.2 11.4 6.1 16 6.8v10.4c0 9.6-6.4 16.7-16 20.1-9.6-3.4-16-10.5-16-20.1V12.3c4.6-.7 9.8-1.6 16-6.8Z"/>
+              <path d="m16.5 24.2 5 5 10.5-11"/>
+            </svg>
+          </span>
+          <p class="eyebrow">Peace of mind, scored</p>
+        </div>
+        <h2>Relax. Your flat is <span>on track.</span></h2>
         <p>Nest turns "are we good this month?" into one number. When bills are paid on time, nobody's carrying extra, and there are no surprises, your flat health stays high.</p>
         <div class="hlist">
           <div class="hli"><span class="hc">✓</span> Everyone transferred on time</div>
