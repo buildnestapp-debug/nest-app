@@ -53,12 +53,6 @@
     cio.unobserve(el);}});},{threshold:0.15});
   document.querySelectorAll('.count').forEach(function(el){cio.observe(el);});
 
-  var scrs=document.querySelectorAll('#deck .scr'),tabs=document.querySelectorAll('#tabbar .tab'),cur=0,timer=null;
-  function go(n){cur=n;scrs.forEach(function(s,i){s.classList.toggle('on',i===n);});tabs.forEach(function(t,i){t.classList.toggle('act',i===n);});}
-  function loop(){timer=setInterval(function(){go((cur+1)%scrs.length);},2800);}
-  function stop(){if(timer){clearInterval(timer);timer=null;}}
-  if(!reduce){var st=false;var pio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!st){st=true;loop();}});},{threshold:0.3});pio.observe(document.getElementById('phone'));}
-
   document.querySelectorAll('#fcbars2 .bar').forEach(function(b){b.style.height='0%';});
   function flipScene(scene){
     if(scene.classList.contains('done'))return;

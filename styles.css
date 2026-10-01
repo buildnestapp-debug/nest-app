@@ -375,6 +375,17 @@ nav.scrolled {
   padding: 42px 42px 18px;
   overflow: hidden;
 }
+.phone-static {
+  display: block;
+  width: min(100%, 380px);
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 34px 36px rgba(22, 36, 31, 0.28));
+  transform: translate(28px, 14px);
+  transform-origin: bottom center;
+}
 .phone {
   position: relative;
   z-index: 1;
@@ -2307,6 +2318,12 @@ footer {
     border-radius: 24px;
     padding: 24px 28px 30px;
   }
+  .phone-static {
+    width: min(100%, 345px);
+    max-height: 545px;
+    object-position: bottom center;
+    transform: translateY(12px);
+  }
   .phone,
   .phone.rise.in {
     transform: translateY(10px) scale(0.92) rotate(3deg);
@@ -2547,6 +2564,11 @@ footer {
     margin: -24px 10px 22px;
     border-radius: 18px;
     padding: 16px 12px 26px;
+  }
+  .phone-static {
+    width: min(92vw, 320px);
+    max-height: 500px;
+    transform: translateY(10px);
   }
   .phone,
   .phone.rise.in {
