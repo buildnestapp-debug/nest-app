@@ -392,11 +392,43 @@
 <!-- TRUST QUOTE -->
 <section class="quote">
   <div class="wrap">
-    <div class="quote-card rise">
+    <div class="quote-heading rise">
+      <p class="eyebrow">Why these stories matter</p>
+      <p class="quote-intro">1 in 3 Kiwi flats loses a flatmate every year. When they leave, the bills don’t. Nest stops the arrears before they start.</p>
+    </div>
+    <div class="quote-card rise" id="quoteCarousel" role="region" aria-label="Customer testimonials" tabindex="0">
       <span class="quote-mark" aria-hidden="true">“</span>
-      <blockquote class="quote-text">A $15 disagreement about groceries can blow up like a $200 fight, because it was never really about the money. It's about trust. Nest keeps the numbers clear so the flat stays intact.</blockquote>
-      <span class="quote-rule" aria-hidden="true"></span>
-      <p class="m">One flat. One source of truth. Nobody left holding the bag.</p>
+      <div class="quote-slides">
+        <figure class="quote-slide is-active" aria-hidden="false">
+          <span class="quote-category">Tenant risk</span>
+          <blockquote class="quote-text">Two flatmates left without explanation. Arrears hit around $2,000. We got evicted. It really stressed out my partner and ruined our relationship.</blockquote>
+          <figcaption class="quote-attribution">Auckland renter</figcaption>
+        </figure>
+        <figure class="quote-slide" aria-hidden="true">
+          <span class="quote-category">Tenant risk</span>
+          <blockquote class="quote-text">A replacement flatmate paid one month then ghosted. I ended up paying around $3,000 for someone who wasn’t even living there anymore.</blockquote>
+          <figcaption class="quote-attribution">Wellington flatmate</figcaption>
+        </figure>
+        <figure class="quote-slide" aria-hidden="true">
+          <span class="quote-category">Fair-share fights</span>
+          <blockquote class="quote-text">My power bill went up about $40 a month once my flatmate’s partner started staying over. Showers, washing machine, communal meals—no contribution.</blockquote>
+          <figcaption class="quote-attribution">Christchurch renter</figcaption>
+        </figure>
+      </div>
+      <div class="quote-controls">
+        <button class="quote-arrow quote-prev" type="button" aria-label="Show previous testimonial">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7"/></svg>
+        </button>
+        <div class="quote-progress" aria-hidden="true"><span class="quote-progress-bar"></span></div>
+        <div class="quote-dots" aria-label="Choose testimonial">
+          <button class="is-active" type="button" aria-label="Show testimonial 1" aria-current="true"></button>
+          <button type="button" aria-label="Show testimonial 2" aria-current="false"></button>
+          <button type="button" aria-label="Show testimonial 3" aria-current="false"></button>
+        </div>
+        <button class="quote-arrow quote-next" type="button" aria-label="Show next testimonial">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>

@@ -83,6 +83,63 @@
   }});},{threshold:0.5});
   gio.observe(document.querySelector('.health'));
 
+  var quoteCarousel=document.getElementById('quoteCarousel');
+  if(quoteCarousel){
+    var quoteSlides=quoteCarousel.querySelectorAll('.quote-slide');
+    var quoteDots=quoteCarousel.querySelectorAll('.quote-dots button');
+    var quotePrev=quoteCarousel.querySelector('.quote-prev');
+    var quoteNext=quoteCarousel.querySelector('.quote-next');
+    var quoteProgress=quoteCarousel.querySelector('.quote-progress-bar');
+    var quoteIndex=0,quoteTimer=null,quoteVisible=false,quotePaused=false;
+    function restartQuoteProgress(){
+      if(!quoteProgress)return;
+      quoteProgress.classList.remove('is-running');
+      void quoteProgress.offsetWidth;
+      if(!reduce&&quoteVisible&&!quotePaused)quoteProgress.classList.add('is-running');
+    }
+    function showQuote(index){
+      quoteIndex=(index+quoteSlides.length)%quoteSlides.length;
+      quoteSlides.forEach(function(slide,i){
+        var active=i===quoteIndex;
+        slide.classList.toggle('is-active',active);
+        slide.setAttribute('aria-hidden',String(!active));
+      });
+      quoteDots.forEach(function(dot,i){
+        var active=i===quoteIndex;
+        dot.classList.toggle('is-active',active);
+        dot.setAttribute('aria-current',String(active));
+      });
+    }
+    function stopQuotes(){if(quoteTimer){clearInterval(quoteTimer);quoteTimer=null;}}
+    function startQuotes(){
+      stopQuotes();
+      if(!reduce&&quoteVisible&&!quotePaused&&quoteSlides.length>1){
+        restartQuoteProgress();
+        quoteTimer=setInterval(function(){showQuote(quoteIndex+1);restartQuoteProgress();},5000);
+      }
+    }
+    function setQuotePaused(paused){
+      quotePaused=paused;
+      quoteCarousel.classList.toggle('is-paused',paused);
+      if(paused)stopQuotes();else startQuotes();
+    }
+    quoteDots.forEach(function(dot,i){dot.addEventListener('click',function(){showQuote(i);startQuotes();});});
+    quotePrev.addEventListener('click',function(){showQuote(quoteIndex-1);startQuotes();});
+    quoteNext.addEventListener('click',function(){showQuote(quoteIndex+1);startQuotes();});
+    quoteCarousel.addEventListener('mouseenter',function(){setQuotePaused(true);});
+    quoteCarousel.addEventListener('mouseleave',function(){setQuotePaused(false);});
+    quoteCarousel.addEventListener('focusin',function(){setQuotePaused(true);});
+    quoteCarousel.addEventListener('focusout',function(e){
+      if(!quoteCarousel.contains(e.relatedTarget))setQuotePaused(false);
+    });
+    var quoteObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){
+      quoteVisible=entry.isIntersecting;
+      if(quoteVisible)startQuotes();else{stopQuotes();quoteProgress.classList.remove('is-running');}
+    });},{threshold:0.3});
+    quoteObserver.observe(quoteCarousel);
+    document.addEventListener('visibilitychange',function(){if(document.hidden)stopQuotes();else startQuotes();});
+  }
+
   var ENDPOINT="https://formspree.io/f/meebbekd";
   function wire(f,m){f.addEventListener('submit',function(e){e.preventDefault();m.textContent="Sending...";
     fetch(ENDPOINT,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
