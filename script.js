@@ -134,9 +134,8 @@
     document.addEventListener('visibilitychange',function(){if(document.hidden)stopQuotes();else startQuotes();});
   }
 
-  var ENDPOINT="https://formspree.io/f/meebbekd";
   function wire(f,m){f.addEventListener('submit',function(e){e.preventDefault();m.textContent="Sending...";
-    fetch(ENDPOINT,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
     .then(function(r){if(r.ok){f.reset();m.textContent="You're on the list. We'll be in touch.";}else{m.textContent="Something went wrong. Try again in a sec.";}})
     .catch(function(){m.textContent="Something went wrong. Try again in a sec.";});});}
   wire(document.getElementById('form1'),document.getElementById('msg1'));
