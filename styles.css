@@ -766,7 +766,9 @@ nav.scrolled {
 }
 .lock-status {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  gap: 7px;
   padding: 17px 24px 0;
   font-size: 12px;
   font-weight: 700;
@@ -788,6 +790,52 @@ nav.scrolled {
 .lock-network i:nth-child(2) { height: 6px; }
 .lock-network i:nth-child(3) { height: 9px; }
 .lock-network i:nth-child(4) { height: 12px; }
+.lock-wifi {
+  display: inline-flex;
+  width: 17px;
+  height: 14px;
+}
+.lock-wifi svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill-rule: evenodd;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
+}
+.lock-wifi path {
+  fill: none;
+}
+.lock-battery {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 23px;
+  height: 11px;
+  padding: 2px;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.lock-battery::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  width: 2px;
+  height: 5px;
+  border-radius: 0 2px 2px 0;
+  background: rgba(255, 255, 255, 0.9);
+}
+.lock-battery i {
+  display: block;
+  width: 82%;
+  height: 100%;
+  border-radius: 1px;
+  background: #fff;
+}
 .lock-time {
   margin-top: 36px;
   text-align: center;

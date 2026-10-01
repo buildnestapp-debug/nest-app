@@ -135,8 +135,15 @@
 
     <div class="lock-phone rise" aria-label="Nest rent reminder notification">
       <div class="lock-screen">
-        <div class="lock-status">
-          <span class="lock-network" aria-label="Network signal"><i></i><i></i><i></i><i></i></span>
+        <div class="lock-status" role="img" aria-label="Network, Wi-Fi and battery status">
+          <span class="lock-network" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="lock-wifi" aria-hidden="true">
+            <svg viewBox="0 0 24 18" focusable="false">
+              <path d="M2 5.5c5.6-4.7 14.4-4.7 20 0M5.5 9.2c3.7-3 9.3-3 13 0M9 12.8c1.8-1.4 4.2-1.4 6 0" />
+              <circle cx="12" cy="16" r="1.35" />
+            </svg>
+          </span>
+          <span class="lock-battery" aria-hidden="true"><i></i></span>
         </div>
         <div class="lock-time">9:41</div>
         <div class="lock-date" id="lockDate">Monday, 14 April</div>
