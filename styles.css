@@ -232,13 +232,18 @@ nav.scrolled {
   font-size: clamp(42px, 4vw, 52px);
   font-weight: 800;
   color: var(--green);
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.72),
+    0 3px 14px rgba(36, 59, 53, 0.1);
   margin: 18px 0 18px;
   max-width: 650px;
 }
 .hero .sub {
   font-size: 16.5px;
+  font-weight: 500;
   line-height: 1.6;
   color: var(--ink);
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.78);
   max-width: 570px;
   margin-bottom: 24px;
 }
