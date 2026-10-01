@@ -237,6 +237,45 @@ nav.scrolled {
   max-width: 570px;
   margin-bottom: 24px;
 }
+.hero-risk {
+  position: relative;
+  max-width: 570px;
+  margin: -2px 0 24px;
+  padding: 16px 20px 15px 48px;
+  border: 1px solid rgba(46, 74, 67, 0.11);
+  border-left: 4px solid #7aa99d;
+  border-radius: 6px 14px 14px 6px;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 16px 38px -32px rgba(36, 59, 53, 0.7);
+  backdrop-filter: blur(8px);
+}
+.hero-risk-mark {
+  position: absolute;
+  top: 7px;
+  left: 17px;
+  color: #68a486;
+  font-family: Georgia, serif;
+  font-size: 38px;
+  line-height: 1;
+}
+.hero-risk blockquote {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 550;
+  line-height: 1.55;
+}
+.hero-risk figcaption {
+  margin-top: 7px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.hero-risk figcaption::before {
+  content: "— ";
+}
 .form {
   display: flex;
   gap: 10px;
